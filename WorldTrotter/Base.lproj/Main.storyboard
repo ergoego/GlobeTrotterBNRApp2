@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xcy-IY-PYz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xcy-IY-PYz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,10 +29,10 @@
             </objects>
             <point key="canvasLocation" x="-1218" y="18"/>
         </scene>
-        <!--Convert-->
+        <!--ConversionViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ConversionViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="ConversionViewController" customClass="ConversionViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,7 +47,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
                                         <connections>
                                             <action selector="fahrenheitFieldEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="ecO-ax-RpI"/>
-                                            <outlet property="delegate" destination="BYZ-38-t0r" id="gau-Q8-qhy"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="mHg-6u-mt0"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Fahrenheit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mfj-d6-z6D">
@@ -99,27 +100,27 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-55" y="-840"/>
+            <point key="canvasLocation" x="-2033" y="859"/>
         </scene>
-        <!--Map -->
+        <!--MapViewController-->
         <scene sceneID="lLx-w9-YUY">
             <objects>
-                <viewController title="Map " id="bXA-Io-ZpJ" customClass="MapViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Map " id="bXA-Io-ZpJ" userLabel="MapViewController" customClass="MapViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="IUG-mS-Hw4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ce-aa-Hrm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-55" y="18"/>
+            <point key="canvasLocation" x="-1218" y="859"/>
         </scene>
-        <!--Web -->
+        <!--WebViewController-->
         <scene sceneID="MXX-sN-ebP">
             <objects>
-                <viewController title="Web " id="laX-WB-6dS" customClass="WebViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Web " id="laX-WB-6dS" userLabel="WebViewController" customClass="WebViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Web" image="WebIcon" id="qEY-GM-XFu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Xt-db-lob" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-58" y="732"/>
+            <point key="canvasLocation" x="-401" y="859"/>
         </scene>
     </scenes>
     <resources>

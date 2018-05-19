@@ -11,6 +11,22 @@ import Foundation
 
 class ConversionViewController: UIViewController, UITextFieldDelegate {
     
+    
+    let numberFormatter: NumberFormatter = {
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
+        nf.minimumFractionDigits = 0
+        nf.maximumFractionDigits = 1
+        return nf
+    }()
+    
+    let dateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateStyle = .none
+        df.dateFormat = DateFormatter.dateFormat(fromTemplate: "HH:mm", options: 0, locale: Locale.current)
+        return df
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateCelsiusLabel()
@@ -70,26 +86,25 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
         let replacementTextHasDecimalSeparator = string.range(of: ".")
+        var replacementTextHasAlpha: Bool = false
+        for character in string.unicodeScalars {
+            if CharacterSet.letters.contains(character) {
+                replacementTextHasAlpha = true
+            } else {
+                replacementTextHasAlpha = false
+            }
+        }
         
-        if existingTextHasDecimalSeparator != nil, replacementTextHasDecimalSeparator != nil {
+        print("This is the current text: \(textField.text ?? "null")")
+        print("This is the replacement text: \(string)")
+        print("replacementTextHasAlpha = \(replacementTextHasAlpha)")
+        
+        if existingTextHasDecimalSeparator != nil && replacementTextHasDecimalSeparator != nil || replacementTextHasAlpha == true {
+            print("text entry not allowed.")
             return false
         } else {
+            print("text entry allowed.")
             return true
         }
     }
-    
-    let numberFormatter: NumberFormatter = {
-        let nf = NumberFormatter()
-        nf.numberStyle = .decimal
-        nf.minimumFractionDigits = 0
-        nf.maximumFractionDigits = 1
-        return nf
-    }()
-    
-    let dateFormatter: DateFormatter = {
-        let df = DateFormatter()
-        df.dateStyle = .none
-        df.dateFormat = DateFormatter.dateFormat(fromTemplate: "HH:mm", options: 0, locale: Locale.current)
-        return df
-    }()
 }
