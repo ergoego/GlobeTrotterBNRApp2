@@ -11,7 +11,6 @@ import Foundation
 
 class ConversionViewController: UIViewController, UITextFieldDelegate {
     
-    
     let numberFormatter: NumberFormatter = {
         let nf = NumberFormatter()
         nf.numberStyle = .decimal
@@ -29,7 +28,19 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        textField.textColor = UIColor.gray
+        textField.placeholder = "ºF"
+        setPlaceholderColorFLabel()
+        
+        celsiusLabel.textColor = UIColor.gray
         updateCelsiusLabel()
+    }
+    
+    func setPlaceholderColorFLabel() {
+        if let placeholder = textField.placeholder {
+            textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedStringKey.foregroundColor: UIColor.orange])
+        }
     }
     
     override func viewWillAppear(_ animated: Bool){
@@ -41,7 +52,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
             if hour >= 7 && hour <= 18 {
                 self.view.backgroundColor = UIColor.lightGray
             } else {
-                self.view.backgroundColor = UIColor.black
+                self.view.backgroundColor = UIColor.darkGray
             }
         }
     }
@@ -78,10 +89,32 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     func updateCelsiusLabel() {
         if let celsiusValue = celsiusValue {
             celsiusLabel.text = numberFormatter.string(from: NSNumber(value: celsiusValue.value))
+            celsiusLabel.text!.append("ºC")
         } else {
-            celsiusLabel.text = "???"
+            celsiusLabel.text = "__ºC"
         }
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.placeholder = nil
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let existingTextHasDegreeSymbol = textField.text?.range(of: "º")
+        if let text = textField.text {
+            if text == "" {
+                textField.placeholder = "ºF"
+                setPlaceholderColorFLabel()
+                print("text at end of editing \(text)")
+            }
+            else if existingTextHasDegreeSymbol != nil {
+                print("text at end of editing \(text)")
+            }
+            else {
+                textField.text!.append("ºF")
+            }
+        }
+}
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
