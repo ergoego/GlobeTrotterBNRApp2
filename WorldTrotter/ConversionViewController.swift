@@ -97,6 +97,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.placeholder = nil
+        textField.text = ""
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -117,8 +118,10 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
 }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
-        let replacementTextHasDecimalSeparator = string.range(of: ".")
+        let currentLocale = Locale.current
+        let decimalSeparator = currentLocale.decimalSeparator ?? "." // The ?? here denotes that the optional decimalSeparator is unwrapped, and if it is found to be nil, then what comes after the ?? is returned as a default value. 
+        let existingTextHasDecimalSeparator = textField.text?.range(of: decimalSeparator)
+        let replacementTextHasDecimalSeparator = string.range(of: decimalSeparator)
         var replacementTextHasAlpha: Bool = false
         for character in string.unicodeScalars {
             if CharacterSet.letters.contains(character) {

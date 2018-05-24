@@ -64,7 +64,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         trailingConstraintLB.isActive = true
         
         view.addSubview(pinAnnotationView)
-        let pinLocation = CLLocationCoordinate2DMake(40.73, -74)
+        let pinLocation = CLLocationCoordinate2DMake(33.4936, -117.1484)
         let pin = MKPointAnnotation()
         pin.coordinate = pinLocation
         mapView.addAnnotation(pin)
@@ -73,7 +73,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        
         print("MapViewController loaded its view.")
     }
     
@@ -87,7 +86,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     @objc func zoomToUser(_: UIButton) {
-        
         if let userLocation = mapView.userLocation.location?.coordinate {
             mapView.setCenter(userLocation, animated: true)
             mapView.setRegion(MKCoordinateRegion(center: userLocation, span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)), animated: true)
