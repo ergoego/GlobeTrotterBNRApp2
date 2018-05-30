@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "__*C"; ObjectID = "GWR-xs-h8C"; */
+"GWR-xs-h8C.text" = "__*C";
+
+/* Class = "UITabBarItem"; title = "Map"; ObjectID = "IUG-mS-Hw4"; */
+"IUG-mS-Hw4.title" = "Map";
+
+/* Class = "UILabel"; text = "converts to"; ObjectID = "JOi-fD-khJ"; */
+"JOi-fD-khJ.text" = "converts to";
+
+/* Class = "UIViewController"; title = "Map "; ObjectID = "bXA-Io-ZpJ"; */
+"bXA-Io-ZpJ.title" = "Map ";
+
+/* Class = "UITextField"; text = "*F"; ObjectID = "cMz-mC-dWX"; */
+"cMz-mC-dWX.text" = "*F";
+
+/* Class = "UIViewController"; title = "Web "; ObjectID = "laX-WB-6dS"; */
+"laX-WB-6dS.title" = "Web ";
+
+/* Class = "UITabBarItem"; title = "Web"; ObjectID = "qEY-GM-XFu"; */
+"qEY-GM-XFu.title" = "Web";
+
+/* Class = "UITabBarItem"; title = "Convert"; ObjectID = "u95-vL-m3z"; */
+"u95-vL-m3z.title" = "Convert";
