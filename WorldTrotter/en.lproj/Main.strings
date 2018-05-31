@@ -1,6 +1,6 @@
 
 /* Class = "UILabel"; text = "__*C"; ObjectID = "GWR-xs-h8C"; */
-"GWR-xs-h8C.text" = "__*C";
+"GWR-xs-h8C.text" = "__ºC";
 
 /* Class = "UITabBarItem"; title = "Map"; ObjectID = "IUG-mS-Hw4"; */
 "IUG-mS-Hw4.title" = "Map";
@@ -12,7 +12,7 @@
 "bXA-Io-ZpJ.title" = "Map ";
 
 /* Class = "UITextField"; text = "*F"; ObjectID = "cMz-mC-dWX"; */
-"cMz-mC-dWX.text" = "*F";
+"cMz-mC-dWX.text" = "ºF";
 
 /* Class = "UIViewController"; title = "Web "; ObjectID = "laX-WB-6dS"; */
 "laX-WB-6dS.title" = "Web ";

@@ -3,13 +3,13 @@
 "GWR-xs-h8C.text" = "__ºC";
 
 /* Class = "UITabBarItem"; title = "Map"; ObjectID = "IUG-mS-Hw4"; */
-"IUG-mS-Hw4.title" = "Mapa";
+"IUG-mS-Hw4.title" = "Carte";
 
 /* Class = "UILabel"; text = "converts to"; ObjectID = "JOi-fD-khJ"; */
-"JOi-fD-khJ.text" = "convierte a";
+"JOi-fD-khJ.text" = "convertit en";
 
 /* Class = "UIViewController"; title = "Map "; ObjectID = "bXA-Io-ZpJ"; */
-"bXA-Io-ZpJ.title" = "Mapa ";
+"bXA-Io-ZpJ.title" = "Carte ";
 
 /* Class = "UITextField"; text = "*F"; ObjectID = "cMz-mC-dWX"; */
 "cMz-mC-dWX.text" = "ºF";
@@ -21,5 +21,4 @@
 "qEY-GM-XFu.title" = "Web";
 
 /* Class = "UITabBarItem"; title = "Convert"; ObjectID = "u95-vL-m3z"; */
-"u95-vL-m3z.title" = "Convertidor";
-
+"u95-vL-m3z.title" = "Convertisseur";

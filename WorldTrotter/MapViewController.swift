@@ -6,6 +6,9 @@
 //  Copyright © 2017 Erik Olson. All rights reserved.
 //
 
+// TODO have a '+' button that will add a pin using an api call to google maps to retrieve lat/long and create new pin.
+// TODO when you 3D touch a pin you can delete it.
+
 import UIKit
 import MapKit
 import CoreLocation
@@ -15,6 +18,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     var mapView: MKMapView!
     var locationManager: CLLocationManager!
     var pinAnnotationView: MKPinAnnotationView!
+    var nextPinToZoomTo: Int = 1
     
     let pin1Location = CLLocationCoordinate2DMake(33.4936, -117.1484)
     let pin1 = MKPointAnnotation()
@@ -22,8 +26,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     let pin2 = MKPointAnnotation()
     let pin3Location = CLLocationCoordinate2DMake(32.7940, 34.9896)
     let pin3 = MKPointAnnotation()
-    
-    var nextPinToShow: Int = 0
     
     override func loadView(){
         // create a map view
@@ -43,7 +45,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.showsUserLocation = true
      
         // create the segmented control
-        let segmentedControl = UISegmentedControl(items: ["Standard", "Hybrid", "Satellite"])
+        let standardString = NSLocalizedString("Standard", comment: "Standard Map View")
+        let hybridString = NSLocalizedString("Hybrid", comment: "Hybrid Map View")
+        let satelliteString = NSLocalizedString("Satellite", comment: "Satellite Map View")
+        let segmentedControl = UISegmentedControl(items: [standardString, hybridString, satelliteString])
         segmentedControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(MapViewController.mapTypeChanged(_:)), for: .valueChanged)
@@ -78,8 +83,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         bottomConstraintLB.isActive = true
         trailingConstraintLB.isActive = true
         
-        //create, constrain, and privide action for nextPinButton
-        
+        // create a button for zooming to pins sequentially upon taps.
         let nextPinButton = UIButton(type: .custom)
         nextPinButton.alpha = 0.5
         nextPinButton.setBackgroundImage(#imageLiteral(resourceName: "WebIcon"), for: .normal)
@@ -94,12 +98,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         bottomConstraintPB.isActive = true
         trailingConstraintPB.isActive = true
-        
-        // add three pins at places of interest to scroll through
-        // TODO have a '+' button that will add a pin using an api call to google maps to retrieve lat/long and create new pin.
-        // TODO pressing the crosshair button will always go to user.
-        // TODO another button opposite the crosshair will cycle and zoom to other pins that have been created.
-        // TODO when you 3D touch a pin you can delete it.
         
         view.addSubview(pinAnnotationView)
         
@@ -140,15 +138,22 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @objc func viewNextPin(_: UIButton) {
         var pinLocation = pin1Location
-        nextPinToShow = nextPinToShow == 4 ? 1 : nextPinToShow + 1
-            switch nextPinToShow {
-            case 1: pinLocation = pin1Location
-            case 2: pinLocation = pin2Location
-            case 3: pinLocation = pin3Location
-            default: break
-        }
+            switch nextPinToZoomTo {
+            case 1: do { pinLocation = pin1Location
+                print("temec")
+                }
+            case 2: do { pinLocation = pin2Location
+                print("tokyo")
+                }
+            case 3: do { pinLocation = pin3Location
+                print("Haifa")
+                }
+            default: do { print(nextPinToZoomTo)
+                break
+                }
+            }
+        nextPinToZoomTo = nextPinToZoomTo == 3 ? 1 : nextPinToZoomTo + 1
         mapView.setCenter(pinLocation, animated: true)
         mapView.setRegion(MKCoordinateRegion(center: pinLocation, span: MKCoordinateSpanMake(1, 1)), animated: true)
     }
-    
 }
